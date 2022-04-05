@@ -20,6 +20,7 @@
     "react-app-rewire-mobx": "^1.0.9",
     "react-app-rewire-preact": "^1.0.1",
     "react-app-rewired": "^2.1.8",
+    "react-csv-reader": "^3.5.0",
     "react-data-table-component": "^7.0.0-alpha-5",
     "react-dom": "^16.14.0",
     "react-github-corner": "^2.5.0",

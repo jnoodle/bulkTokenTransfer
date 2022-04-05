@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import GithubCorner from "react-github-corner";
 import Web3Utils from "web3-utils";
+import getWeb3 from "../getWeb3";
 
 @inject("UiStore")
 @observer
@@ -45,25 +46,47 @@ export class Header extends React.Component {
           </a>
           <form className="form form_header">
             {/* <Link className="button" to='/retry'>Retry Failed Transaction</Link> */}
-            <label className="multisend-label">Chain: {this.state.chain}</label>
-            <label className="multisend-label">
-              My Address:{" "}
-              <a
-                target="_blank"
-                href={`${explorerUrl}/address/${this.state.multisenderAddress}`}
-              >
-                {this.formatAddress(this.state.myAddress)}
-              </a>
-            </label>
-            <label className="multisend-label">
-              Contract Address:{" "}
-              <a
-                target="_blank"
-                href={`${explorerUrl}/address/${this.state.multisenderAddress}`}
-              >
-                {this.formatAddress(this.state.multisenderAddress)}
-              </a>
-            </label>
+
+            {this.state.myAddress ? (
+              <>
+                <label className="multisend-label">
+                  Chain: {this.state.chain}
+                </label>
+                <label className="multisend-label">
+                  My Address:{" "}
+                  <a
+                    target="_blank"
+                    href={`${explorerUrl}/address/${this.state.myAddress}`}
+                  >
+                    {this.formatAddress(this.state.myAddress)}
+                  </a>
+                </label>
+                <label className="multisend-label">
+                  Contract Address:{" "}
+                  <a
+                    target="_blank"
+                    href={`${explorerUrl}/address/${this.state.multisenderAddress}`}
+                  >
+                    {this.formatAddress(this.state.multisenderAddress)}
+                  </a>
+                </label>
+              </>
+            ) : null}
+            {this.state.myAddress ? null : (
+              <label className="multisend-label">
+                <a
+                  href="#"
+                  onClick={() => {
+                    window.ethereum &&
+                      window.ethereum.request({
+                        method: "eth_requestAccounts",
+                      });
+                  }}
+                >
+                  Connect Wallet
+                </a>
+              </label>
+            )}
           </form>
         </div>
         {/*<div className="multisend-container">*/}

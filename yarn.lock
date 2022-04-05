@@ -9909,6 +9909,11 @@ pako@~1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
 
+papaparse@^5.3.0:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-5.3.2.tgz#d1abed498a0ee299f103130a6109720404fbd467"
+  integrity sha512-6dNZu0Ki+gyV0eBsFKJhYr+MdQYAzFUGlBMNj3GNrmHxmz1lfRa24CjFObPXtjcetlOv5Ad299MhIK0znp3afw==
+
 parallel-transform@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/parallel-transform/-/parallel-transform-1.2.0.tgz#9049ca37d6cb2182c3b1d2c720be94d14a5814fc"
@@ -11254,6 +11259,13 @@ react-base16-styling@^0.6.0:
     lodash.curry "^4.0.1"
     lodash.flow "^3.3.0"
     pure-color "^1.2.0"
+
+react-csv-reader@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/react-csv-reader/-/react-csv-reader-3.5.0.tgz#8121622b20111b41849a1de7eb4abe9a353d9dd5"
+  integrity sha512-wh4qsjPWnXI6DFbrh2uaKpGW7E2ZxzwKI3juK35/zcCqLLAnpI6jfspDwut9Q66MSXqEFXQ+nnMGMHJKIesH3g==
+  dependencies:
+    papaparse "^5.3.0"
 
 react-data-table-component@^7.0.0-alpha-5:
   version "7.0.0-rc6"

@@ -12,6 +12,7 @@ import Example from "./example.json";
 import { RadioGroup, Radio } from "react-radio-group";
 import csvtojson from "csvtojson";
 import Select from "react-select";
+import CSVReader from "react-csv-reader";
 import "../assets/stylesheets/react-select.min.css";
 
 const ownInput = ({ error, isChanged, isUsed, ...props }) => (
@@ -171,7 +172,7 @@ export class FirstStep extends React.Component {
         .fromString(value)
         .on("csv", (csv) => {
           let el = {};
-          if (csv.length === 2) {
+          if (csv.length === 2 && csv[0] && csv[1]) {
             Object.defineProperty(el, csv[0], {
               value: csv[1],
               writable: true,
@@ -298,7 +299,8 @@ export class FirstStep extends React.Component {
           <div className="form-inline">
             <div className="form-inline-i form-inline-i_token-address-values">
               <label htmlFor="token-address-values" className="multisend-label">
-                List of addresses and values
+                List of addresses and values (Paste into textarea or upload a
+                csv file)
               </label>
               <Textarea
                 disabled={this.web3Store.loading}
@@ -306,12 +308,21 @@ export class FirstStep extends React.Component {
                 id="token-address-values"
                 data-gram
                 validations={[required]}
-                placeholder={`Example: ${this.state.placeholder}`}
+                placeholder={`Example(Address,TokenAmount): ${this.state.placeholder}`}
                 value={this.state.csv}
                 onBlur={this.onParse}
                 id="addresses-with-balances"
                 className="multisend-textarea"
               ></Textarea>
+              <CSVReader
+                onFileLoaded={(data, fileInfo, originalFile) => {
+                  console.log(data, fileInfo, originalFile);
+                  if (data && data.length > 0) {
+                    this.setState({ csv: data.join("\n") });
+                    this.onCsvChange(data.join("\n"));
+                  }
+                }}
+              />
             </div>
           </div>
         </Form>

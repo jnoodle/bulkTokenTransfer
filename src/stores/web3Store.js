@@ -70,8 +70,15 @@ class Web3Store {
         etherscanApiKey = process.env["REACT_APP_PROXY_MULTISENDER_ETHERSCAN_API_KEY"]
       }
 
+      let apiHref = `https://api${api_suffix}.${api_domain}`
+
+      if(blockchain_network.indexOf('bsc')>-1){
+        apiHref = trustApiName;
+        etherscanApiKey = process.env["REACT_APP_PROXY_MULTISENDER_BSCSCAN_API_KEY"]
+      }
+
       window.fetch(
-        `https://api${api_suffix}.${api_domain}/api?module=account&action=tokentx&address=${defaultAccount}&startblock=0&endblock=999999999&sort=desc&apikey=${etherscanApiKey}`
+        `${apiHref}/api?module=account&action=tokentx&address=${defaultAccount}&startblock=0&endblock=999999999&sort=desc&apikey=${etherscanApiKey}`
       ).then((res) => {
         return res.json()
       }).then((res) => {
@@ -117,7 +124,12 @@ class Web3Store {
             value: '0x000000000000000000000000000000000000bEEF',
             label: "MATIC - Polygon Native Currency"
           })
-        } else {
+        } else if(blockchain_network.indexOf('bsc')>-1){
+          tokensUnique.unshift({
+            value: '0x000000000000000000000000000000000000bEEF',
+            label: "BNB - BSC Native Currency"
+          })
+        }else {
           tokensUnique.unshift({
             value: '0x000000000000000000000000000000000000bEEF',
             label: "ETH - Ethereum Native Currency"

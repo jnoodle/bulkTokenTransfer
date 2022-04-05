@@ -36,7 +36,6 @@ export class Header extends React.Component {
         <div className="multisend-container">
           Supports Mainnet, Ropsten, Rinkeby, Kovan, Goerli, Mumbai, Matic
         </div>
-        <GithubCorner href="https://github.com/ativofinance/yardAirDrop" target="_blank" rel="nofollow" />
       </header>
     )
   }

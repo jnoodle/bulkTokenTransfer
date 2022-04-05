@@ -85,11 +85,23 @@ let getWeb3 = () => {
                 explorerUrl = 'https://mumbai.polygonscan.com'
                 console.log('This is Mumbai', netId)
                 break;
+              case "56":
+                netIdName = 'BSCMainnet'
+                trustApiName = 'https://api.bscscan.com'
+                explorerUrl = 'https://bscscan.com'
+                console.log('This is BSC Mainnet', netId)
+                break;
+              case "97":
+                netIdName = 'BSCTestnet'
+                trustApiName = 'https://api-testnet.bscscan.com'
+                explorerUrl = 'https://testnet.bscscan.com'
+                console.log('This is BSC Testnet', netId)
+                break;
               default:
                 netIdName = 'Unknown'
                 console.log('This is an unknown network.', netId)
             }
-            document.title = `${netIdName} - YardAirDrop dApp`
+            document.title = `${netIdName} - BulkTokenTransfer`
             getAccounts().then(accounts => {
               const firstAccount = accounts.length > 0 ? accounts[0] : null
               var defaultAccount = web3.eth.defaultAccount || firstAccount || null;

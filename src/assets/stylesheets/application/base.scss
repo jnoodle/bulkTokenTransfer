@@ -1,6 +1,9 @@
 html,
 body,
-p, h1, h2, h3 {
+p,
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
   font-weight: normal;
@@ -17,7 +20,7 @@ body {
   background-color: #011d2f;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -67,21 +70,22 @@ strong {
   @extend %container;
 
   &_bg {
+    //&:before {
+    //  @include image-2x('../images/illustration@2x.png');
+    //  content: '';
+    //  position: absolute;
+    //  right: -120px;
+    //  top: 10px;
+    //  width: 570px;
+    //  height: 445px;
+    //  background-image: url(../images/illustration.png);
+    //
+    //  @media (max-width: $container-responsive--width) {
+    //    display: none;
+    //  }
+    //}
 
-    &:before {
-      @include image-2x('../images/illustration@2x.png');
-      content: '';
-      position: absolute;
-      right: -120px;
-      top: 10px;
-      width: 570px;
-      height: 445px;
-      background-image: url(../images/illustration.png);
-
-      @media (max-width: $container-responsive--width) {
-        display: none;
-      }
-    }
+    padding-bottom: 50px;
   }
 
   &_opacity {
@@ -94,7 +98,7 @@ strong {
 .content {
   position: relative;
   z-index: 1;
-  width: 50%;
+  width: 100%;
 
   .container_opacity & {
     width: 100%;

@@ -366,7 +366,7 @@ class TxStore {
             swal("Error!", error.message, "error");
             console.log(error);
             // re-send
-            this._multisend({ slice, addPerTx });
+            // this._multisend({ slice, addPerTx });
           });
       } else {
         let encodedData = await multisender.methods
@@ -430,7 +430,7 @@ class TxStore {
             swal("Error!", error.message, "error");
             console.log(error);
             // re-send
-            this._multisend({ slice, addPerTx });
+            // this._multisend({ slice, addPerTx });
           });
       }
       slice--;

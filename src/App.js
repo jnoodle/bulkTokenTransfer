@@ -13,7 +13,7 @@ import {
 import { Route, Redirect } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { inject } from "mobx-react";
-import "./assets/stylesheets/application.scss";
+import "./assets/stylesheets/application.css";
 import Navigation from "./components/Navigation";
 import { Wizard, Steps, Step } from "react-albus";
 import { Line } from "rc-progress";

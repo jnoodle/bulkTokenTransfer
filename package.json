@@ -2,12 +2,13 @@
   "name": "multi-sender-app",
   "version": "0.1.0",
   "license": "GPL3",
+  "homepage": "https://jnoodle.github.io/bulkTokenTransfer",
   "dependencies": {
     "@metamask/onboarding": "^1.0.0",
     "bignumber.js": "^6.0.0",
     "csvtojson": "^1.1.12",
     "customize-cra": "^1.0.0",
-    "gh-pages": "^1.2.0",
+    "gh-pages": "^3.2.3",
     "json-validator": "^0.0.34",
     "mobx": "^3.6.2",
     "mobx-react": "^4.4.3",
@@ -47,7 +48,7 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -o rstorm"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [

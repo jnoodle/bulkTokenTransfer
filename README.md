@@ -1,4 +1,4 @@
-![Demo](demo.gif)
+
 # Problem:
 Previously in Ethereum Network, additional tools were required in order to transfer many ERC20 tokens at once.
 Many people still do this manually, one transaction at a time. This process is time consuming and prone to an error.
@@ -11,7 +11,7 @@ This Dapp allows a user to send thousands of token transfers in a very effecient
 2. Make sure you have an account in MetaMask which has a token balance.
 3. Make sure your MetaMask is pointed to the network that you would like to use.
 4. Make sure your MetaMask account is unlocked.
-5. Go to https://github.com/ativofinance/yardAirDrop
+5. Go to https://jnoodle.github.io/bulkTokenTransfer
 6. Wait for the full page to load.
 7. Select a token from the dropdown that you would like to send.
 8. Provide either JSON or CSV text in the textarea (see example below).
@@ -25,7 +25,7 @@ You can test this tool on any test network, if you want to make sure that
 everything will work as expected.
 
 Contracts deployed:  
-Mainnet, Rinkeby, Kovan, Ropsten, Sokol, CORE-POA:  
+Mainnet, Rinkeby, Kovan, Ropsten, Sokol, CORE-POA, BSC Mainnet/Testnet:  
 ProxyStorage: 0xa5025faba6e70b84f74e9b1113e5f7f4e7f4859f  
 
 Example JSON:
@@ -60,12 +60,12 @@ https://kovan.etherscan.io/tx/0x755b84a8a61fd82c1410f6bbbb452c94ddf12fac5b1daaa1
 
 # How to setup dev environment
 
-1. git clone git@github.com:ativofinance/yardAirDrop.git
+1. git clone git@github.com:jnoodle/bulkTokenTransfer.git
 2. cd contracts
-3. I used  `node -v v9.7.1`
+3. I used  `node -v v12.16.1`
 4. npm install
 5. deploy YardAirDrop contract OR use existing deployed version: 0xa5025faba6e70b84f74e9b1113e5f7f4e7f4859f
-currenty deployed on Kovan, Rinkeby, Ropsten, POA-network, POA-Sokol, Mainnet
+currenty deployed on Kovan, Rinkeby, Ropsten, POA-network, POA-Sokol, Mainnet, BSC Mainnet/Testnet
 Instructions on how to deploy it is listed below.
 6. cd ..
 7. npm install

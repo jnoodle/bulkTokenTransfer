@@ -290,7 +290,7 @@ export class ThirdStep extends React.Component {
       return null;
     }
     const value = parseFloat(this.tokenStore.defAccTokenBalance);
-    let displayValue = value.toFixed(5);
+    let displayValue = value.toFixed(8);
     if ("0.00000" === displayValue) {
       displayValue = value;
     }

@@ -102,7 +102,7 @@ class TokenStore {
       const web3 = this.web3Store.web3;
       let ethBalance = await web3.eth.getBalance(this.web3Store.defaultAccount);
       ethBalance = Web3Utils.fromWei(ethBalance);
-      this.ethBalance = new BN(ethBalance).toFormat(3);
+      this.ethBalance = new BN(ethBalance).toFormat(8);
       web3.eth.subscribe("newBlockHeaders", async (err, result) => {
         if (err) {
           console.log(err);
@@ -112,7 +112,7 @@ class TokenStore {
           this.web3Store.defaultAccount
         );
         ethBalance = Web3Utils.fromWei(ethBalance);
-        this.ethBalance = new BN(ethBalance).toFormat(3);
+        this.ethBalance = new BN(ethBalance).toFormat(8);
       });
       return this.ethBalance;
     } catch (e) {
@@ -233,7 +233,13 @@ class TokenStore {
       await this.getTokenSymbol(tokenAddress);
     } else {
       this.tokenAddress = tokenAddress;
-      this.tokenSymbol = "ETH";
+      console.log("this.web3Store.netId", this.web3Store.netId);
+      this.tokenSymbol =
+        this.web3Store.netId === "97"
+          ? "tBNB"
+          : this.web3Store.netId === "56"
+          ? "BNB"
+          : "ETH";
       this.decimals = 18;
       this.defAccTokenBalance = this.ethBalance;
     }

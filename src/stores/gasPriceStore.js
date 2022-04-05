@@ -42,7 +42,7 @@ class GasPriceStore {
 
   @computed get standardInHex() {
     console.log("standardInHex", this.selectedGasPrice);
-    const toWei = Web3Utils.toWei(this.selectedGasPrice.toFixed(), "gwei");
+    const toWei = Web3Utils.toWei((+this.selectedGasPrice).toFixed(), "gwei");
     return Web3Utils.toHex(toWei);
   }
   @action

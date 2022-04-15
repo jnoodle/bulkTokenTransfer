@@ -212,8 +212,8 @@ export class ThirdStep extends React.Component {
 
     try {
       if (
-        new BN(this.tokenStore.totalBalance).gt(
-          new BN(this.tokenStore.defAccTokenBalance)
+        new BN((this.tokenStore.totalBalance + "").replace(/,/g, "")).gt(
+          new BN((this.tokenStore.defAccTokenBalance + "").replace(/,/g, ""))
         )
       ) {
         console.error("Your balance is less than total to send");
@@ -226,10 +226,12 @@ export class ThirdStep extends React.Component {
       }
       const multisendGasEthValue = this.getMultisendPlusApproveGasEthValue();
       const ethBalanceWei = Web3Utils.toWei(
-        this.tokenStore.ethBalance,
+        (this.tokenStore.ethBalance + "").replace(/,/g, ""),
         "ether"
       );
-      if (multisendGasEthValue.gt(new BN(ethBalanceWei))) {
+      if (
+        multisendGasEthValue.gt(new BN((ethBalanceWei + "").replace(/,/g, "")))
+      ) {
         const displayMultisendGasEthValue = parseFloat(
           Web3Utils.fromWei(multisendGasEthValue.toString())
         ).toFixed(5);
@@ -249,8 +251,8 @@ export class ThirdStep extends React.Component {
         wizard.push("multisend");
       } else {
         if (
-          new BN(this.tokenStore.allowance).gte(
-            new BN(this.tokenStore.totalBalance)
+          new BN((this.tokenStore.allowance + "").replace(/,/g, "")).gte(
+            new BN((this.tokenStore.totalBalance + "").replace(/,/g, ""))
           )
         ) {
           wizard.push("multisend");
